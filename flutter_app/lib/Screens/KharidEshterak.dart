@@ -66,7 +66,8 @@ class KharidEshterak extends StatelessWidget {
                         color: Color(0xFF303988),
                         width: 1,
                       )),
-                  child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 8.0),
                     child: Text(
                       'خرید اشتراک',
                       textAlign: TextAlign.center,
@@ -134,7 +135,8 @@ class KharidEshterak extends StatelessWidget {
                           SizedBox(
                             width: 6,
                           ),
-                          Center(
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.0),
                             child: Text(
                               'خرید اشتراک',
                               textAlign: TextAlign.center,
@@ -151,7 +153,7 @@ class KharidEshterak extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: deviceInfo.size.height/40,
+                  height: deviceInfo.size.height / 40,
                 ),
                 EshterakWidget(
                   deviceInfo: deviceInfo,
@@ -161,7 +163,9 @@ class KharidEshterak extends StatelessWidget {
                   text4: "تومان",
                   imageUrl: 'images/abi.png',
                 ),
-                SizedBox(height: deviceInfo.size.height/40,),
+                SizedBox(
+                  height: deviceInfo.size.height / 40,
+                ),
                 EshterakWidget(
                   deviceInfo: deviceInfo,
                   text1: "اشتراک یسه ماهه",
@@ -170,7 +174,9 @@ class KharidEshterak extends StatelessWidget {
                   text4: "تومان",
                   imageUrl: 'images/narenji.png',
                 ),
-                SizedBox(height: deviceInfo.size.height/40,),
+                SizedBox(
+                  height: deviceInfo.size.height / 40,
+                ),
                 EshterakWidget(
                   deviceInfo: deviceInfo,
                   text1: "اشتراک شش ماهه",
@@ -179,7 +185,9 @@ class KharidEshterak extends StatelessWidget {
                   text4: "تومان",
                   imageUrl: 'images/abi.png',
                 ),
-                SizedBox(height: deviceInfo.size.height/20,),
+                SizedBox(
+                  height: deviceInfo.size.height / 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -202,46 +210,51 @@ class KharidEshterak extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: TextWidget(text: "کد تخفیف خود را وارد کنید",),
+                      child: TextWidget(
+                        text: "کد تخفیف خود را وارد کنید",
+                      ),
                     ),
                     Container(
-                      height: deviceInfo.size.height / 20,
-                      width: deviceInfo.size.width / 4,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFFCAB5E),
-                        borderRadius: BorderRadius.circular(5),
-                        border: Border.all(
-                          width: 2.0,
-                          color: Colors.white,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.6),
-                            offset: Offset(0, 3),
-                            spreadRadius: 5,
-                            blurRadius: 7,
+                        height: deviceInfo.size.height / 20,
+                        width: deviceInfo.size.width / 4,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFCAB5E),
+                          borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            width: 2.0,
+                            color: Colors.white,
                           ),
-                        ],
-                      ),
-                      child: TextWidget(text: "اعمال",)
-                    ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.6),
+                              offset: Offset(0, 3),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                            ),
+                          ],
+                        ),
+                        child: TextWidget(
+                          text: "اعمال",
+                        )),
                   ],
                 ),
-                SizedBox(height: deviceInfo.size.height/30,),
+                SizedBox(
+                  height: deviceInfo.size.height / 30,
+                ),
                 GestureDetector(
                   child: Container(
-                    height: deviceInfo.size.height/10,
-                    width: deviceInfo.size.width/1.2,
+                    height: deviceInfo.size.height / 10,
+                    width: deviceInfo.size.width / 1.2,
                     decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('images/edame.png')
-                      )
-                    ),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('images/edame.png'))),
                   ),
-                  onTap: (){},
+                  onTap: () {},
                 ),
-                SizedBox(height: deviceInfo.size.height/40,)
+                SizedBox(
+                  height: deviceInfo.size.height / 40,
+                )
               ],
             ),
           ),
@@ -269,7 +282,7 @@ class TextWidget extends StatelessWidget {
           color: Color(0xFF303988),
         ),
         contentPadding: EdgeInsets.only(bottom: 3),
-          border: InputBorder.none,
+        border: InputBorder.none,
       ),
     );
   }
