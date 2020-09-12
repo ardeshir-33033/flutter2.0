@@ -22,7 +22,6 @@ class KharidEshterak extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10),
                 SafeArea(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -215,27 +214,39 @@ class KharidEshterak extends StatelessWidget {
                       ),
                     ),
                     Container(
-                        height: deviceInfo.size.height / 20,
-                        width: deviceInfo.size.width / 4,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFCAB5E),
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Colors.white,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.6),
-                              offset: Offset(0, 3),
-                              spreadRadius: 5,
-                              blurRadius: 7,
-                            ),
-                          ],
+                      height: deviceInfo.size.height / 20,
+                      width: deviceInfo.size.width / 4,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFCAB5E),
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          width: 2.0,
+                          color: Colors.white,
                         ),
-                        child: TextWidget(
-                          text: "اعمال",
-                        )),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.6),
+                            offset: Offset(0, 3),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding:  EdgeInsets.only(top:10.0),
+                        child: GestureDetector(
+                          child: Text(
+                            'اعمال',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFF303988),
+                            ),
+                          ),
+                          onTap: (){},
+                        ),
+                      ),
+                    )
                   ],
                 ),
                 SizedBox(

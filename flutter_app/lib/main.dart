@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Screens/KharidEshterak.dart';
+import 'Screens/MaherSho.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Font1",
       ),
-      home: KharidEshterak(),
+      home: MaherSho(),
     );
   }
 }
