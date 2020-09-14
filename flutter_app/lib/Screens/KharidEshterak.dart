@@ -1,8 +1,94 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Data/data.dart';
+import 'package:flutter_app/Data/data2.dart';
 import 'dart:math';
 
 class KharidEshterak extends StatelessWidget {
+  buildEshterak(entryinfo) {
+    MediaQueryData deviceInfo = entryinfo;
+    List<Widget> eshterakList = [];
+    eshteraks.forEach((Eshterak eshterak) {
+      eshterakList.add(
+        Column(
+          children: <Widget>[
+            Container(
+              height: deviceInfo.size.height / 8,
+              width: deviceInfo.size.width / 1.2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  width: 1.0,
+                  color: Color(0xFF303988),
+                ),
+                image: DecorationImage(
+                  image: AssetImage(eshterak.imageUrl),
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          eshterak.title,
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Color(0xFF303988),
+                          ),
+                        ),
+                        SizedBox(height: deviceInfo.size.height / 60),
+                        Text(
+                          eshterak.mahane,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF303988),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 45.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          eshterak.totalPrice,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF303988),
+                          ),
+                        ),
+                        Text(
+                          eshterak.currency,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF303988),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: deviceInfo.size.height / 40,
+            ),
+          ],
+        ),
+      );
+    });
+    return Column(
+      children: eshterakList,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
@@ -17,6 +103,7 @@ class KharidEshterak extends StatelessWidget {
               image: AssetImage(
                 "images/asset-1.png",
               ),
+              fit: BoxFit.fill,
             ),
           ),
           child: SingleChildScrollView(
@@ -49,15 +136,17 @@ class KharidEshterak extends StatelessWidget {
                           onPressed: () {},
                           shape: CircleBorder(),
                           color: Colors.black.withOpacity(0.4),
-                          padding: EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(deviceInfo.size.width / 40),
                         ),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                  width: deviceInfo.size.width / 1.9,
-                  height: deviceInfo.size.height / 20,
+//                  width: deviceInfo.size.width / 1.9,
+//                  height: deviceInfo.size.height / 18,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: deviceInfo.size.width / 8),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
@@ -66,26 +155,26 @@ class KharidEshterak extends StatelessWidget {
                         width: 1,
                       )),
                   child: Padding(
-                    padding: EdgeInsets.only(top: 8.0),
+                    padding: EdgeInsets.only(top: deviceInfo.size.height / 70),
                     child: Text(
                       'خرید اشتراک',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xFF303988),
-                        fontSize: 25,
+                        fontSize: deviceInfo.size.width / 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: deviceInfo.size.height / 25,
+                  height: deviceInfo.size.height / 30,
                 ),
                 Text(
                   'اشتراک نداری، اشتراک بخر!',
                   style: TextStyle(
                     color: Color(0xFF303988),
-                    fontSize: 25,
+                    fontSize: deviceInfo.size.width / 17,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -95,10 +184,12 @@ class KharidEshterak extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: EdgeInsets.only(right: deviceInfo.size.width / 12),
+                    padding: EdgeInsets.only(
+                        right: deviceInfo.size.width / 12,
+                        left: deviceInfo.size.width / 1.9),
                     child: Container(
-                      height: deviceInfo.size.height / 20,
-                      width: deviceInfo.size.width / 2.5,
+//                      height: deviceInfo.size.height / 18,
+//                      width: deviceInfo.size.width / 2.5,
                       decoration: BoxDecoration(
                         color: Color(0xFFFCAB5E),
                         borderRadius: BorderRadius.circular(5),
@@ -118,29 +209,31 @@ class KharidEshterak extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.only(right: 8.0),
+                            padding: EdgeInsets.only(
+                                right: deviceInfo.size.width / 80),
                             child: Icon(
                               CupertinoIcons.plus_circled,
                               color: Color(0xFF303988),
-                              size: 30,
+                              size: deviceInfo.size.width / 13,
                             ),
                           ),
-                          SizedBox(width: 5),
+                          SizedBox(width: deviceInfo.size.width / 100),
                           Container(
-                            height: 30,
+                            height: deviceInfo.size.height / 24,
                             width: 2,
                             color: Colors.white,
                           ),
                           SizedBox(
-                            width: 6,
+                            width: deviceInfo.size.width / 50,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 8.0),
+                            padding: EdgeInsets.only(
+                                top: deviceInfo.size.width / 50),
                             child: Text(
                               'خرید اشتراک',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 22,
+                                fontSize: deviceInfo.size.width / 19,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF303988),
                               ),
@@ -154,36 +247,7 @@ class KharidEshterak extends StatelessWidget {
                 SizedBox(
                   height: deviceInfo.size.height / 40,
                 ),
-                EshterakWidget(
-                  deviceInfo: deviceInfo,
-                  text1: "اشتراک یک ماهه",
-                  text2: "ماهانه 12،000",
-                  text3: " 12،000",
-                  text4: "تومان",
-                  imageUrl: 'images/abi.png',
-                ),
-                SizedBox(
-                  height: deviceInfo.size.height / 40,
-                ),
-                EshterakWidget(
-                  deviceInfo: deviceInfo,
-                  text1: "اشتراک یسه ماهه",
-                  text2: "ماهانه 10،000",
-                  text3: " 30،000",
-                  text4: "تومان",
-                  imageUrl: 'images/narenji.png',
-                ),
-                SizedBox(
-                  height: deviceInfo.size.height / 40,
-                ),
-                EshterakWidget(
-                  deviceInfo: deviceInfo,
-                  text1: "اشتراک شش ماهه",
-                  text2: "ماهانه 9،000",
-                  text3: " 54،000",
-                  text4: "تومان",
-                  imageUrl: 'images/abi.png',
-                ),
+                buildEshterak(deviceInfo),
                 SizedBox(
                   height: deviceInfo.size.height / 20,
                 ),
@@ -193,6 +257,7 @@ class KharidEshterak extends StatelessWidget {
                     Container(
                       height: deviceInfo.size.height / 20,
                       width: deviceInfo.size.width / 2,
+//                    padding: EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
                         color: Color(0xFFFCAB5E),
                         borderRadius: BorderRadius.circular(5),
@@ -214,8 +279,10 @@ class KharidEshterak extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: deviceInfo.size.height / 20,
-                      width: deviceInfo.size.width / 4,
+//                      height: deviceInfo.size.height / 20,
+//                      width: deviceInfo.size.width / 4,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: deviceInfo.size.width / 15),
                       decoration: BoxDecoration(
                         color: Color(0xFFFCAB5E),
                         borderRadius: BorderRadius.circular(5),
@@ -233,17 +300,18 @@ class KharidEshterak extends StatelessWidget {
                         ],
                       ),
                       child: Padding(
-                        padding:  EdgeInsets.only(top:10.0),
+                        padding:
+                            EdgeInsets.only(top: deviceInfo.size.height / 80),
                         child: GestureDetector(
                           child: Text(
                             'اعمال',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: deviceInfo.size.width / 21,
                               color: Color(0xFF303988),
                             ),
                           ),
-                          onTap: (){},
+                          onTap: () {},
                         ),
                       ),
                     )
@@ -289,99 +357,12 @@ class TextWidget extends StatelessWidget {
       decoration: InputDecoration(
         hintText: text,
         hintStyle: TextStyle(
-          fontSize: 20,
+          fontSize: MediaQuery.of(context).size.width / 22,
           color: Color(0xFF303988),
         ),
-        contentPadding: EdgeInsets.only(bottom: 3),
+        contentPadding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).size.height / 100),
         border: InputBorder.none,
-      ),
-    );
-  }
-}
-
-class EshterakWidget extends StatelessWidget {
-  const EshterakWidget({
-    Key key,
-    this.text1,
-    this.text2,
-    this.text3,
-    this.text4,
-    this.imageUrl,
-    @required this.deviceInfo,
-  }) : super(key: key);
-
-  final String text1;
-  final String text2;
-  final String text3;
-  final String text4;
-  final String imageUrl;
-  final MediaQueryData deviceInfo;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: deviceInfo.size.height / 8,
-      width: deviceInfo.size.width / 1.2,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          width: 1.0,
-          color: Color(0xFF303988),
-        ),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
-          fit: BoxFit.fitWidth,
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  text1,
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Color(0xFF303988),
-                  ),
-                ),
-                SizedBox(height: deviceInfo.size.height / 60),
-                Text(
-                  text2,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF303988),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 45.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  text3,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF303988),
-                  ),
-                ),
-                Text(
-                  text4,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xFF303988),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
       ),
     );
   }
