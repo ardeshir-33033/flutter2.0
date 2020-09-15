@@ -88,7 +88,6 @@ class KharidEshterak extends StatelessWidget {
       children: eshterakList,
     );
   }
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);

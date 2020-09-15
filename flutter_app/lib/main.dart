@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Font1",
       ),
-      home: KharidEshterak(),
+      home: MaherSho(),
     );
   }
 }
