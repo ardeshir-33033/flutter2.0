@@ -214,18 +214,27 @@ class MaherSho extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Positioned(
-                      bottom: 30,
-                      child: GestureDetector(
-                        child: Container(
-                          height: deviceInfo.size.height / 10,
-                          width: deviceInfo.size.width / 1.2,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage('images/edame.png'))),
+                    GestureDetector(
+                      child: Container(
+                        height: deviceInfo.size.height / 18,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: deviceInfo.size.width / 8),
+                        decoration: BoxDecoration(
+                            color: Color(0xFFFCAB5E),
+                            borderRadius: BorderRadius.circular(30),
+                            ),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: deviceInfo.size.height / 70),
+                          child: Text(
+                            'میخواهی اشتراک بخری؟',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Color(0xFF303988),
+                              fontSize: deviceInfo.size.width / 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        onTap: () {},
                       ),
                     ),
                     SizedBox(
