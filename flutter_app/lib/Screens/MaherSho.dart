@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter_app/Widget/Useful.dart';
+
 
 class MaherSho extends StatelessWidget {
   buildAmozesh(deviceInfo) {
@@ -64,14 +66,7 @@ class MaherSho extends StatelessWidget {
         body: Container(
           width: deviceInfo.size.width,
           height: deviceInfo.size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                "images/asset-1.png",
-              ),
-              fit: BoxFit.fill,
-            ),
-          ),
+          decoration: secondaryBack,
           child: SingleChildScrollView(
             child: Stack(
               alignment: Alignment.topCenter,
@@ -190,8 +185,7 @@ class MaherSho extends StatelessWidget {
                                       width: 1.5,
                                       color: Color(0xFF303988),
                                     ),
-                                    borderRadius:
-                                        BorderRadius.circular(15)),
+                                    borderRadius: BorderRadius.circular(15)),
                                 child: Padding(
                                   padding: EdgeInsets.all(
                                       deviceInfo.size.width / 30),

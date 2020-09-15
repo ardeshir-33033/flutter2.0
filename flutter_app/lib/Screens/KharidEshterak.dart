@@ -4,6 +4,8 @@ import 'package:flutter_app/Data/data.dart';
 import 'package:flutter_app/Data/data2.dart';
 import 'dart:math';
 
+import 'package:flutter_app/Widget/Useful.dart';
+
 class KharidEshterak extends StatelessWidget {
   buildEshterak(entryinfo) {
     MediaQueryData deviceInfo = entryinfo;
@@ -97,14 +99,7 @@ class KharidEshterak extends StatelessWidget {
         body: Container(
           width: deviceInfo.size.width,
           height: deviceInfo.size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                "images/asset-1.png",
-              ),
-              fit: BoxFit.fill,
-            ),
-          ),
+          decoration: secondaryBack,
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
