@@ -57,7 +57,7 @@ class Moraghebat extends StatelessWidget {
                   Container(
 //                    margin: EdgeInsets.all(10),
                     width: double.infinity,
-                    height: mainWidth / 2.8,
+                    height: mainHeight / 2.8,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -76,15 +76,17 @@ class Moraghebat extends StatelessWidget {
                           mainWidth: mainWidth,
                           mainHeight: mainHeight,
                         ),
-//                        ListView(
-//                          scrollDirection: Axis.horizontal,
-//                          children: List.generate(6, (index) {
-//                            return Container(
-//                              width: mainWidth/2.5,
-//                              child: Container(),
-//                            );
-//                          }),
-//                        )
+                        Expanded(
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: List.generate(6, (index) {
+                              return Container(
+                                width: mainWidth/1.5,
+                                child: ListMoraghebat(mainHeight: mainHeight,mainWidth: mainWidth,),
+                              );
+                            }),
+                          ),
+                        ),
                       ],
                     ),
                   )
