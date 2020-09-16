@@ -19,7 +19,7 @@ class Namayesh extends StatelessWidget {
             child: Container(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 10),
+                  SizedBox(height: mainHeight/70),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
