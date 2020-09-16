@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Screens/MahershoNamayesh.dart';
 import 'Screens/KharidEshterak.dart';
 import 'Screens/MaherSho.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Font1",
       ),
-      home: MaherSho(),
+      home: Namayesh(),
     );
   }
 }

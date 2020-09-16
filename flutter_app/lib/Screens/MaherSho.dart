@@ -25,7 +25,7 @@ class MaherSho extends StatelessWidget {
             Icon(
               Icons.play_circle_filled,
               color: Colors.orange,
-              size: 100,
+              size: deviceInfo.size.width/5,
             ),
           ],
         ),
