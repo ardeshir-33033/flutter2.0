@@ -16,82 +16,49 @@ class Moraghebat extends StatelessWidget {
           width: mainWidth,
           decoration: secondaryBack,
           child: SafeArea(
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: mainHeight / 70),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: mainHeight / 70),
+                mainHeader(),
+                TopTitle(title: "سنجش سلامتی",),
+                SizedBox(
+                  height: mainHeight / 20,
+                ),
+                Container(
+                  height: mainHeight / 2.8,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                      width: 1,
+                      color: Color(0xFF303988),
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: mainWidth / 20),
-                        child: CircleAvatar(
-                          radius: mainWidth / 11,
-                          backgroundColor: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(3),
-                            child: ClipOval(child: Image.asset('images/1.png')),
-                          ),
-                        ),
+                      SizedBox(
+                        height: mainHeight / 80,
                       ),
-                      Transform.rotate(
-                        angle: 90 * pi / 180,
-                        child: FlatButton(
-                          child: Icon(
-                            Icons.label,
-                            size: mainWidth / 13,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                          shape: CircleBorder(),
-                          color: Colors.black.withOpacity(0.4),
-                          padding: EdgeInsets.all(10.0),
+                      DividerTitle(
+                        title: "مراقبت کرونایی",
+                        mainWidth: mainWidth,
+                        mainHeight: mainHeight,
+                      ),
+                      Expanded(
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: List.generate(6, (index) {
+                            return Container(
+                              width: mainWidth/1.5,
+                              child: ListMoraghebat(mainHeight: mainHeight,mainWidth: mainWidth,),
+                            );
+                          }),
                         ),
                       ),
                     ],
                   ),
-                  SanjeshSalamat(),
-                  SizedBox(
-                    height: mainHeight / 20,
-                  ),
-                  Container(
-//                    margin: EdgeInsets.all(10),
-                    width: double.infinity,
-                    height: mainHeight / 2.8,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFF303988),
-                      ),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: mainHeight / 80,
-                        ),
-                        DividerTitle(
-                          title: "مراقبت کرونایی",
-                          mainWidth: mainWidth,
-                          mainHeight: mainHeight,
-                        ),
-                        Expanded(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: List.generate(6, (index) {
-                              return Container(
-                                width: mainWidth/1.5,
-                                child: ListMoraghebat(mainHeight: mainHeight,mainWidth: mainWidth,),
-                              );
-                            }),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
         ),

@@ -19,63 +19,10 @@ class Namayesh extends StatelessWidget {
             child: Container(
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: mainHeight/70),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: mainWidth / 20),
-                        child: CircleAvatar(
-                          radius: mainWidth / 11,
-                          backgroundColor: Colors.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(3),
-                            child: ClipOval(child: Image.asset('images/1.png')),
-                          ),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: 90 * pi / 180,
-                        child: FlatButton(
-                          child: Icon(
-                            Icons.label,
-                            size: mainWidth / 13,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                          shape: CircleBorder(),
-                          color: Colors.black.withOpacity(0.4),
-                          padding: EdgeInsets.all(10.0),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      width: mainWidth / 1.9,
-                      height: mainHeight / 20,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(
-                            color: Color(0xFF303988),
-                            width: 1,
-                          )),
-                      child: Positioned(
-                        bottom: 30,
-                        child: Text(
-                          "Word یادبگیر",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xFF303988),
-                            fontSize: mainWidth / 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  SizedBox(height: 10),
+                  mainHeader(),
+                  TopTitle(title:"Word یادبگیر",),
+                  SizedBox(height: 10),
                   SizedBox(height: 10),
                   Expanded(
                     child: Padding(
@@ -322,40 +269,6 @@ class Namayesh extends StatelessWidget {
                   )
                 ],
               ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class buttonwidget extends StatelessWidget {
-  buttonwidget({
-    this.mainWidth,
-    this.text,
-    this.padding,
-  });
-
-  final double padding;
-  final String text;
-  final double mainWidth;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Color(0xFFFCAC5E),
-      borderRadius: BorderRadius.circular(15),
-      child: MaterialButton(
-        onPressed: () {},
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: mainWidth / 18,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF303988),
             ),
           ),
         ),
