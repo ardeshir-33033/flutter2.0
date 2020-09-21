@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Widget/Useful.dart';
-import 'dart:math';
 import 'package:video_player/video_player.dart';
+import 'package:flutter_app/Widget/VideoPlayer.dart';
 
 class Namayesh extends StatefulWidget {
   @override
@@ -10,24 +10,6 @@ class Namayesh extends StatefulWidget {
 }
 
 class _NamayeshState extends State<Namayesh> {
-
-  VideoPlayerController _controller;
-  Future<void> _initializedVideoPlayerFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset("videos/small.mp4")
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     double mainWidth = MediaQuery.of(context).size.width;
@@ -75,33 +57,13 @@ class _NamayeshState extends State<Namayesh> {
                                   SizedBox(
                                     height: mainHeight / 30,
                                   ),
-                                  Stack(
-                                    children: <Widget>[
-                                      Center(
-                                        child: _controller.value.initialized ? AspectRatio(
-                                          aspectRatio: _controller.value.aspectRatio,
-                                          child: VideoPlayer(_controller),
-                                        )
-                                        :Container(),
-                                      ),
-                                      Padding(
-                                        padding:  EdgeInsets.only(top:mainHeight/12),
-                                        child: Center(
-                                          child: FloatingActionButton(
-                                            onPressed: (){
-                                              setState(() {
-                                                _controller.value.isPlaying?_controller.pause():_controller.play();
-                                              });
-                                            },
-                                            child: Icon(
-                                              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    ],
+                                  ChewieListItem(
+                                    videoPlayerController:
+                                        VideoPlayerController.asset(
+                                      'videos/small.mp4',
+                                    ),
+                                    looping: true,
                                   ),
-
                                   Padding(
                                     padding: EdgeInsets.only(
                                         right: mainWidth / 30,
@@ -587,15 +549,6 @@ class _NamayeshState extends State<Namayesh> {
 //    );
 //  }
 //}
-
-
-
-
-
-
-
-
-
 
 //                                    child: Container(
 //                                      height: mainHeight / 5,

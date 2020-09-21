@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 class buildAmozesh1 extends StatefulWidget {
   @override
@@ -7,56 +6,30 @@ class buildAmozesh1 extends StatefulWidget {
 }
 
 class _buildAmozesh1State extends State<buildAmozesh1> {
-  VideoPlayerController _controller;
-  Future<void> _initializedVideoPlayerFuture;
 
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset("videos/small.mp4")
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
     return Column(
 //      crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Stack(
           alignment: Alignment.center,
           children: <Widget>[
             Container(
-              height: deviceInfo.size.height / 7,
+              height: deviceInfo.size.height / 5,
               width: deviceInfo.size.width / 3,
-              child: Center(
-                child: _controller.value.initialized ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-                    :Container(),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/asset-8.png"),
+                    fit: BoxFit.contain),
               ),
             ),
-            IconButton(
-              onPressed: (){
-                setState(() {
-                  _controller.value.isPlaying?_controller.pause():_controller.play();
-                });
-              },
-              icon: Icon(
-                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                size: 30,
-                color: Colors.blue,
-              ),
+            Icon(
+              Icons.play_circle_filled,
+              color: Colors.orange,
+              size: deviceInfo.size.width/5,
             ),
           ],
         ),
@@ -66,6 +39,37 @@ class _buildAmozesh1State extends State<buildAmozesh1> {
     );;
   }
 }
+
+buildAmozesh(deviceInfo) {
+  return Column(
+//      crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisSize: MainAxisSize.max,
+    children: <Widget>[
+      Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Container(
+            height: deviceInfo.size.height / 5,
+            width: deviceInfo.size.width / 3,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/asset-8.png"),
+                  fit: BoxFit.contain),
+            ),
+          ),
+          Icon(
+            Icons.play_circle_filled,
+            color: Colors.orange,
+            size: deviceInfo.size.width/5,
+          ),
+        ],
+      ),
+      VidsText(title: "جلسه اول",),
+      VidsText(title: "لورم ایپسوم",)
+    ],
+  );
+}
+
 class VidsText extends StatelessWidget {
   const VidsText({
     this.title,
