@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Font1",
       ),
-      home: Namayesh(),
+      home: Mahersho2(),
     );
   }
 }

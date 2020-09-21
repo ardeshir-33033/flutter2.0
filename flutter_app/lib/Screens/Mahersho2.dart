@@ -82,11 +82,11 @@ class Mahersho2 extends StatelessWidget {
                             Expanded(
                               child: GridView.count(
                                 crossAxisCount: 2,
-                                childAspectRatio: 0.91,
+//                                childAspectRatio: 0.91,
                                 physics: NeverScrollableScrollPhysics(),
                                 padding: EdgeInsets.all(10),
                                 children: List.generate(6, (index) {
-                                  return buildAmozesh(deviceInfo);
+                                  return buildAmozesh1();
                                 }),
                               ),
                             ),
